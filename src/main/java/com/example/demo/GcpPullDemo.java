@@ -22,7 +22,7 @@ public class GcpPullDemo {
 	public String getData() throws IOException {
 		StringBuffer sb = new StringBuffer();
 
-		try (ReadChannel channel = storage.reader("storage-java", "demofile.txt")) {
+		try (ReadChannel channel = storage.reader("file-storage-demo", "demofile.txt")) {
 			ByteBuffer byteBuffer = ByteBuffer.allocate(64 * 1024);
 			while (channel.read(byteBuffer) > 0) {
 				byteBuffer.flip();
