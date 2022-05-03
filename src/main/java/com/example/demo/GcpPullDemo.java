@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.io.IOException;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,8 @@ public class GcpPullDemo {
 		try (ReadChannel channel = storage.reader("file-storage-demo", "demofile.txt")) {
 			ByteBuffer byteBuffer = ByteBuffer.allocate(64 * 1024);
 			while (channel.read(byteBuffer) > 0) {
-				//byteBuffer.flip();
+				((Buffer) byteBuffer).flip();
+				// byteBuffer.flip();
 				String data = new String(byteBuffer.array(), 0, byteBuffer.limit());
 				sb.append(data);
 				byteBuffer.clear();
