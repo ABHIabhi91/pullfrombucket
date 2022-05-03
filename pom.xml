@@ -14,7 +14,7 @@
 	<name>gcp-pull-demo</name>
 	<description>Demo project for gcp pull</description>
 	<properties>
-		<java.version>9</java.version>
+		<java.version>8</java.version>
 		<spring-cloud-gcp.version>3.2.1</spring-cloud-gcp.version>
 		<spring-cloud.version>2021.0.1</spring-cloud.version>
 	</properties>

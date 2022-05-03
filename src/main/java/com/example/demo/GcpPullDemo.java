@@ -28,9 +28,9 @@ public class GcpPullDemo {
 			while (channel.read(byteBuffer) > 0) {
 				((Buffer) byteBuffer).flip();
 				// byteBuffer.flip();
-				String data = new String(byteBuffer.array(), 0, byteBuffer.limit());
+				String data = new String(byteBuffer.array(), 0, ((Buffer) byteBuffer).limit());
 				sb.append(data);
-				byteBuffer.clear();
+				((Buffer) byteBuffer).clear();
 
 			}
 			return sb.toString();
